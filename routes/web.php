@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get("/products", [ProductController::class, "view"]);
+
+Route::get("/create", [ProductController::class, "create"]);
+Route::post("/create", [ProductController::class, "store"]);

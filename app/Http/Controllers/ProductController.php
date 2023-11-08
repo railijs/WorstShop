@@ -12,4 +12,20 @@ class ProductController extends Controller
         //\Log::info("acdss");
         return view("products", ["products" => $products]);
     }
+
+    public function create() {
+        return view("create");
+    }
+
+    public function store(Request $request, Product $product) {
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->imageURL = $request->image;
+
+        $product->save();
+        
+        return redirect("/products");
+
+    }
 }
