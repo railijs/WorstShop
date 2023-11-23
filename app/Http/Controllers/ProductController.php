@@ -44,4 +44,16 @@ class ProductController extends Controller
         return redirect("/products");
 
     }
+
+    public function show($id) {
+        $product = Product::find($id);
+        if (isset($product)) {
+            return view("products.show", ["product" => $product]);
+        }
+
+        return redirect("/products");
+        // Uztaisīt skatu View vienam produktam un
+        // izsaukt to no kontroliera
+        
+    }
 }
