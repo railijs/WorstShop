@@ -56,4 +56,14 @@ class ProductController extends Controller
         // izsaukt to no kontroliera
         
     }
+
+
+    public function edit($id) {
+        $product = Product::find($id);
+        if (isset($product)) {
+            return view("products.edit", ["product" => $product]);
+        }
+
+        return redirect("/products");
+    }
 }
