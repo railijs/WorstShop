@@ -66,4 +66,30 @@ class ProductController extends Controller
 
         return redirect("/products");
     }
+
+    public function update(Request $request, $id) {
+        $product = Product::find($id);
+
+        $request->validate(
+            [
+                "name" => ["required", "min:5", "max:50"],
+                "description" => ["required", "min:5", "max:255"],
+                "price" => ["required", "numeric"]
+            ]
+        );
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+
+        $product->save();
+
+        return redirect("/products/$id");
+    }
+
+    public function destroy($id) {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect("/products");
+    }
 }

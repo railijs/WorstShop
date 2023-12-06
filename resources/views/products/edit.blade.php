@@ -18,9 +18,10 @@
     </ul>
   @endif
 
-  <h1>Please add product</h1>
+  <h1>Please update product</h1>
   <form method="POST" action="/products/{{$product->id}}" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <label>
       Product name:
       <input value="{{$product->name}}" name="name"/>
