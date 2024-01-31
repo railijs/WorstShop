@@ -30,3 +30,6 @@ Route::delete("products/{id}", [ProductController::class, "destroy"]);
 
 Route::get("/register", [UserController::class, "create"]);
 Route::post("/register", [UserController::class, "store"]);
+
+Route::get("/login", [UserController::class, "login"]);
+Route::post("/login", [UserController::class, "signin"]); // Ļoti nepareizi, labāk būtu login2, vēl labāk - uztaisīt atsevišķu Controller

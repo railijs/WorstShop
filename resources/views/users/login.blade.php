@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Login</title>
     <style>
       form {
         display: flex;
@@ -20,23 +20,13 @@
 </head>
 
 <body>
-    <h1>Register</h1>
-    <form method="POST" action="/register">
+    <h1>Login</h1>
+    <form method="POST" action="/login">
       @csrf
       <label>
           <span>Username:</span>
           <input name="username">
       </label>
-      @error("username")
-        <p>{{$message}}</p>
-      @enderror
-      <label>
-          <span>Email:</span>
-          <input type="email" name="email">
-      </label>
-      @error("email")
-        <p>Muļķis! {{$message}}</p>
-      @enderror
       <label>
           <span>Password:</span>
           <input type="password" name="password">
