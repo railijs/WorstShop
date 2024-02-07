@@ -16,7 +16,7 @@ class UserController extends Controller
         $request->validate([
             "username" => ["string", "required", "max:255", Rule::unique("users", "name")],
             "email" => ["email", "required", Rule::unique('users', 'email')],
-            "password" => ["required", "min:4", "max:5"]
+            "password" => ["required", "min:4"]
         ]);
 
         $user = new User;
@@ -26,7 +26,9 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect("/products");
+        session()->flash("success", "You have been registered");
+
+        return redirect("/login");
     }
 
     public function login() {
@@ -34,6 +36,15 @@ class UserController extends Controller
     }
 
     public function signin(Request $request) {
-        
+        $request->validate([
+            "username" => ["required"],
+            "password" => ["required"]
+        ]);
+        if (auth()->attempt(["name" => $request->username,
+                             "password" => $request->password])) {
+            return redirect("/products");
+        } else {
+            dd("dsfbgd");
+        }
     }
 }

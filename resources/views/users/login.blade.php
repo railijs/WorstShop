@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <style>
       form {
         display: flex;
@@ -36,6 +37,14 @@
       @enderror
       <button>Submit</button>
     </form>
+    @if (session()->has("success"))
+      <div x-data="{ open: true }">
+        <div x-show="open">
+          <p>{{ session("success") }}</p>
+          <button @click="open = false">Close</button>
+        </div>
+      </div>
+    @endif
 </body>
 
 </html>
