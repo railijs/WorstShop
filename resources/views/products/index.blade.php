@@ -5,10 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Products</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Products</h1>
+  <header>
+    <p>WorstShop</p>
+    @auth
+    <div>
+        <p>gang, {{auth()->user()->name}}</p>
+        <form action="/logout" method="POST">
+          @csrf
+        <button>Log Out</button>
+        </form>
+    </div>
+    @endauth
+  </header>
   <main>
+  <h1>Products</h1>
     <a href="/products/create">Uztaisīt jaunu</a>
     @foreach($products as $product)
     <article>

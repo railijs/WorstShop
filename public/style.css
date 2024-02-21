@@ -1,20 +1,60 @@
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 30vw;
+* {
+    box-sizing: border-box;
 }
 
-input, textarea {
-  padding: 7px 10px;
-  border-radius: 0;
-  border: 1px solid purple;
+:root {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    --header-height: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30vw;
+}
+
+input,
+textarea {
+    padding: 7px 10px;
+    border-radius: 0;
+    border: 1px solid purple;
 }
 
 button {
-  padding: 7px 20px;
-  background-color: purple;
-  border: none;
-  color: white;
-  cursor: pointer;
+    padding: 7px 20px;
+    background-color: purple;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-height);
+    padding: 0 20px;
+}
+
+header > div {
+    display: flex;
+    gap: 10px;
+}
+
+header form {
+    width: auto;
+}
+
+header button {
+    height: 100%;
+}
+
+main {
+    margin-top: var(--header-height);
 }
